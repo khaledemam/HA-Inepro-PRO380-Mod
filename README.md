@@ -1,14 +1,14 @@
 # HA-Inepro-PRO380-Mod
-Inepro PRO380-Mod integráció Home Assistantba
+Inepro PRO380-Mod integration into Home Assistant
 
-Beállítások:
-1. A fogyasztásmérőn:
+Settings:
+1. On the consumption meter:
 parity: N
 address: 2
 
-2. A modbus.yaml fájt be kell másolni a /config könyvtárba
+2. The modbus.yaml file must be copied to the /config directory
 
-3. Configuration.yaml-be:
+3. In Configuration.yaml:
 modbus: !include modbus.yaml
 
 4. reboot
