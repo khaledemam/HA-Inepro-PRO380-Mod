@@ -7,7 +7,20 @@
   port: /dev/ttyUSB0
   stopbits: 1
   sensors:
-    - name: "L1 feszültség"
+      - name: "Voltage"
+      unique_id: V
+      device_class: voltage
+      state_class: measurement
+      precision: 2
+      address: 0x5000
+      input_type: holding
+      count: 2
+      data_type: float32
+      unit_of_measurement: "V"
+      slave: 2
+      scan_interval: 60
+
+    - name: "L1 Voltage"
       unique_id: L1V
       device_class: voltage
       state_class: measurement
@@ -20,7 +33,7 @@
       slave: 2
       scan_interval: 60
 
-    - name: "L2 feszültség"
+    - name: "L2 Voltage"
       unique_id: L2V
       device_class: voltage
       state_class: measurement
@@ -33,7 +46,7 @@
       slave: 2
       scan_interval: 60
 
-    - name: "L3 feszültség"
+    - name: "L3 Voltage"
       unique_id: L3V
       device_class: voltage
       state_class: measurement
@@ -46,7 +59,7 @@
       slave: 2
       scan_interval: 60
 
-    - name: "Frekvencia"
+    - name: "Grid frequency"
       unique_id: Hz
       device_class: frequency
       state_class: measurement
@@ -59,7 +72,20 @@
       slave: 2
       scan_interval: 60
 
-    - name: "L1 áramerősség"
+    - name: "Current"
+      unique_id: A
+      device_class: current
+      state_class: measurement
+      precision: 2
+      address: 0x500A
+      input_type: holding
+      count: 2
+      data_type: float32
+      unit_of_measurement: "A"
+      slave: 2
+      scan_interval: 60
+
+    - name: "L1 Current"
       unique_id: L1A
       device_class: current
       state_class: measurement
@@ -72,7 +98,7 @@
       slave: 2
       scan_interval: 60
 
-    - name: "L2 áramerősség"
+    - name: "L2 Current"
       unique_id: L2A
       device_class: current
       state_class: measurement
@@ -85,7 +111,7 @@
       slave: 2
       scan_interval: 60
 
-    - name: "L3 áramerősség"
+    - name: "L3 Current"
       unique_id: L3A
       device_class: current
       state_class: measurement
@@ -98,8 +124,8 @@
       slave: 2
       scan_interval: 60
 
-    - name: "Összes hatásos teljesítmény"
-      unique_id: SZHT
+    - name: "Total active power"
+      unique_id: TAP
       device_class: power
       state_class: measurement
       precision: 2
@@ -110,9 +136,48 @@
       unit_of_measurement: "kW"
       slave: 2
       scan_interval: 60
+      
+    - name: "L1 Active power"
+      unique_id: TAP L1
+      device_class: power
+      state_class: measurement
+      precision: 2
+      address: 0x5014
+      input_type: holding
+      count: 2
+      data_type: float32
+      unit_of_measurement: "kW"
+      slave: 2
+      scan_interval: 60
 
-    - name: "Összes meddő teljesítmény"
-      unique_id: SZMT
+    - name: "L2 Active power"
+      unique_id: TAP L2
+      device_class: power
+      state_class: measurement
+      precision: 2
+      address: 0x5016
+      input_type: holding
+      count: 2
+      data_type: float32
+      unit_of_measurement: "kW"
+      slave: 2
+      scan_interval: 60
+
+    - name: "L3 Active power"
+      unique_id: TAP L3
+      device_class: power
+      state_class: measurement
+      precision: 2
+      address: 0x5018
+      input_type: holding
+      count: 2
+      data_type: float32
+      unit_of_measurement: "kW"
+      slave: 2
+      scan_interval: 60
+
+    - name: "Total reactive power"
+      unique_id: TRP
       device_class: power
       state_class: measurement
       precision: 2
@@ -124,8 +189,47 @@
       slave: 2
       scan_interval: 60
 
-    - name: "Összes látszólagos teljesítmény"
-      unique_id: SZLT
+    - name: "L1 Reactive power"
+      unique_id: TRP L1
+      device_class: power
+      state_class: measurement
+      precision: 2
+      address: 0x501C
+      input_type: holding
+      count: 2
+      data_type: float32
+      unit_of_measurement: "kVAr"
+      slave: 2
+      scan_interval: 60
+
+    - name: "L2 Reactive power"
+      unique_id: TRP L2
+      device_class: power
+      state_class: measurement
+      precision: 2
+      address: 0x501E
+      input_type: holding
+      count: 2
+      data_type: float32
+      unit_of_measurement: "kVAr"
+      slave: 2
+      scan_interval: 60
+
+    - name: "L3 Reactive power"
+      unique_id: TRP L3
+      device_class: power
+      state_class: measurement
+      precision: 2
+      address: 0x5020
+      input_type: holding
+      count: 2
+      data_type: float32
+      unit_of_measurement: "kVAr"
+      slave: 2
+      scan_interval: 60
+
+    - name: "Total apparent power"
+      unique_id: TApP
       device_class: power
       state_class: measurement
       precision: 2
@@ -137,7 +241,46 @@
       slave: 2
       scan_interval: 60
 
-    - name: "Teljesítménytényező"
+    - name: "L1 Apparent power"
+      unique_id: TApP L1
+      device_class: power
+      state_class: measurement
+      precision: 2
+      address: 0x5024
+      input_type: holding
+      count: 2
+      data_type: float32
+      unit_of_measurement: "kVA"
+      slave: 2
+      scan_interval: 60
+
+     - name: "L2 Apparent power"
+      unique_id: TApP L2
+      device_class: power
+      state_class: measurement
+      precision: 2
+      address: 0x5026
+      input_type: holding
+      count: 2
+      data_type: float32
+      unit_of_measurement: "kVA"
+      slave: 2
+      scan_interval: 60     
+
+     - name: "L3 Apparent power"
+      unique_id: TApP L3
+      device_class: power
+      state_class: measurement
+      precision: 2
+      address: 0x5028
+      input_type: holding
+      count: 2
+      data_type: float32
+      unit_of_measurement: "kVA"
+      slave: 2
+      scan_interval: 60 
+
+    - name: "Power factor"
       unique_id: COSFI
       device_class: power_factor
       state_class: measurement
@@ -149,8 +292,57 @@
       slave: 2
       scan_interval: 60
 
-    - name: "Import hatásos energia"
-      unique_id: IHE
+    - name: "L1 Power factor"
+      unique_id: COSFI L1
+      device_class: power_factor
+      state_class: measurement
+      precision: 2
+      address: 0x502C
+      input_type: holding
+      count: 2
+      data_type: float32
+      slave: 2
+      scan_interval: 60
+
+    - name: "L2 Power factor"
+      unique_id: COSFI L2
+      device_class: power_factor
+      state_class: measurement
+      precision: 2
+      address: 0x502E
+      input_type: holding
+      count: 2
+      data_type: float32
+      slave: 2
+      scan_interval: 60
+
+    - name: "L3 Power factor"
+      unique_id: COSFI L3
+      device_class: power_factor
+      state_class: measurement
+      precision: 2
+      address: 0x5030
+      input_type: holding
+      count: 2
+      data_type: float32
+      slave: 2
+      scan_interval: 60
+
+    - name: "Total active energy"
+      unique_id: TAE
+      device_class: energy
+      state_class: total_increasing
+      precision: 2
+      address: 0x6000
+      input_type: holding
+      count: 2
+      data_type: float32
+      unit_of_measurement: "kWh"
+      slave: 2
+      scan_interval: 60
+
+    - name: "Forward active energy"
+      unique_id: FAE
       device_class: energy
       state_class: total_increasing
       precision: 2
@@ -162,8 +354,8 @@
       slave: 2
       scan_interval: 60
 
-    - name: "Export hatásos energia"
-      unique_id: EHE
+    - name: "Reverse active energy"
+      unique_id: RAE
       device_class: energy
       state_class: total_increasing
       precision: 2
@@ -175,8 +367,8 @@
       slave: 2
       scan_interval: 60
 
-    - name: "Összes meddő energia"
-      unique_id: SZME
+    - name: "Total reactive energy"
+      unique_id: TRE
       device_class: energy
       state_class: total_increasing
       precision: 2
@@ -188,8 +380,8 @@
       slave: 2
       scan_interval: 60
 
-    - name: "Import meddő energia"
-      unique_id: IME
+    - name: "Forward reactive energy"
+      unique_id: FRE
       device_class: energy
       state_class: total_increasing
       precision: 2
@@ -201,8 +393,8 @@
       slave: 2
       scan_interval: 60
 
-    - name: "Export meddő energia"
-      unique_id: EME
+    - name: "Reverse reactive energy "
+      unique_id: RRE
       device_class: energy
       state_class: total_increasing
       precision: 2
@@ -214,3 +406,12 @@
       slave: 2
       scan_interval: 60
 
+    - name: "Tariff"
+      unique_id: Tariff
+      scan_interval: 10
+      slave: 2
+      address: 0x6048
+      input_type: input
+      count: 1
+      data_type: custom
+      structure: ">Bx"
