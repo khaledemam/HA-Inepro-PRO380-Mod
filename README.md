@@ -3,7 +3,7 @@ Inepro PRO380-Mod integration into Home Assistant
 
 Settings:
 1. On the consumption meter:
-parity: N
+parity: E
 address: 2
 
 2. The modbus.yaml file must be copied to the /config directory
