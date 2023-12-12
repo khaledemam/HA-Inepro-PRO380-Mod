@@ -3,7 +3,7 @@
   baudrate: 9600
   bytesize: 8
   method: rtu
-  parity: N
+  parity: E
   port: /dev/ttyUSB0
   stopbits: 1
   sensors:
